@@ -75,7 +75,7 @@ end if%>
 											<select name="producto">
 												<option value="0">-listado de productos-</option>
 												<%
-												sql1="SELECT Catalogo.NombreCuenta,  Catalogo.Codigo FROM Catalogo WHERE Catalogo.Codigo>=1022 and Catalogo.Codigo<=1024"
+												sql1="SELECT Catalogo.NombreCuenta,  Catalogo.Codigo FROM Catalogo WHERE Catalogo.Codigo>=1073 and Catalogo.Codigo<=1075"
 												Set R = conn.Execute(sql1)
 												while Not(R.EOF)
 													cont=cont+1

@@ -58,7 +58,7 @@ for i=1 to j
 	tasa=request.form("tasa"&i)
 	importe=request.form("importe"&i)
 	if tasa <> "" then
-		montogif=montogif+importe
+		montogif=montogif+importe*tasa
 	end if
 next
 '4038 GIF

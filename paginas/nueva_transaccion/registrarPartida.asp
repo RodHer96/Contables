@@ -56,10 +56,12 @@
 								monAbo3 = Request.Form("ma3")
 								monAbo4 = Request.Form("ma4")
 								monAbo5 = Request.Form("ma5")
+
 								fech = Date()
 								set conn = Server.CreateObject("ADODB.Connection")
 								conn.open "Datos","",""
 								cad = "SELECT * FROM Diario ORDER BY NumTrans"
+								set resul=Server.CreateObject("ADOdb.Recordset")
 								set L = conn.execute(cad)
 								While Not (L.EOF)
 									numero = L("NumTrans")
@@ -68,26 +70,57 @@
 								if numero = "" then
 									numero = 0
 								end if   
+
 								' *************** INGRESO TODOS LOS CARGOS ***************
 								if ctaCar1 <> 0 then
 									sql1 = "INSERT INTO Diario (NumTrans, codigo, cargo, fecha) VALUES ('" & numero+1 & "', '" & ctaCar1 & "', '" & monCar1 & "', '" & fech & "')"
 									conn.execute(sql1)
+									sql2 = "SELECT * FROM Inventario WHERE codigo="&ctaCar1
+									resul=conn.execute(sql2)
+									montoA=resul("Monto")+monAbo1
+									cantidadA=resul("Cantidad")+monAbo1
+									sql="UPDATE inventario SET Cantidad="&cantidadA&", Monto="&montoA&" WHERE codigo="&ctaCar1
+									conn.Execute(sql)
 								end if
 								if ctaCar2 <> 0 then
 									sql1 = "INSERT INTO Diario (NumTrans, codigo, cargo, fecha) VALUES ('" & numero+1 & "', '" & ctaCar2 & "', '" & monCar2 & "', '" & fech & "')"
 									conn.execute(sql1)
+									sql2 = "SELECT * FROM Inventario WHERE codigo="&ctaCar2
+									resul=conn.execute(sql2)
+									montoA=resul("Monto")+monAbo2
+									cantidadA=resul("Cantidad")+monAbo2
+									sql="UPDATE inventario SET Cantidad="&cantidadA&", Monto="&montoA&" WHERE codigo="&ctaCar2
+									conn.Execute(sql)
 								end if
 								if ctaCar3 <> 0 then
 									sql1 = "INSERT INTO Diario (NumTrans, codigo, cargo, fecha) VALUES ('" & numero+1 & "', '" & ctaCar3 & "', '" & monCar3 & "', '" & fech & "')"
 									conn.execute(sql1)
+									sql2 = "SELECT * FROM Inventario WHERE codigo="&ctaCar3
+									resul=conn.execute(sql2)
+									montoA=resul("Monto")+monAbo3
+									cantidadA=resul("Cantidad")+monAbo3
+									sql="UPDATE inventario SET Cantidad="&cantidadA&", Monto="&montoA&" WHERE codigo="&ctaCar3
+									conn.Execute(sql)
 								end if
 								if ctaCar4 <> 0 then
 									sql1 = "INSERT INTO Diario (NumTrans, codigo, cargo, fecha) VALUES ('" & numero+1 & "', '" & ctaCar4 & "', '" & monCar4 & "', '" & fech & "')"
 									conn.execute(sql1)
+									sql2 = "SELECT * FROM Inventario WHERE codigo="&ctaCar4
+									resul=conn.execute(sql2)
+									montoA=resul("Monto")+monAbo4
+									cantidadA=resul("Cantidad")+monAbo4
+									sql="UPDATE inventario SET Cantidad="&cantidadA&", Monto="&montoA&" WHERE codigo="&ctaCar4
+									conn.Execute(sql)
 								end if
 								if ctaCar5 <> 0 then
 									sql1 = "INSERT INTO Diario (NumTrans, codigo, cargo, fecha) VALUES ('" & numero+1 & "', '" & ctaCar5 & "', '" & monCar5 & "', '" & fech & "')"
 									conn.execute(sql1)
+									sql2 = "SELECT * FROM Inventario WHERE codigo="&ctaCar5
+									resul=conn.execute(sql2)
+									montoA=resul("Monto")+monAbo5
+									cantidadA=resul("Cantidad")+monAbo5
+									sql="UPDATE inventario SET Cantidad="&cantidadA&", Monto="&montoA&" WHERE codigo="&ctaCar5
+									conn.Execute(sql)
 								end if
 								' *************** INGRESO TODOS LOS ABONOS ***************
 								if ctaAbo1 <> 0 then
