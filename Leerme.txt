@@ -18,3 +18,5 @@ Para ejecutar el Sistema:
 2.	Al ingresar a local host se muestra la página de inicio
 3.	Dar clic en “Clik Aquí Para Entrar”.
 4.	Luego aparecerá la página “Acceso al sistema” Ingresar Usuario y su respectiva Contraseña (admin, admin) esto es posible modificarlo al ingresar al sistema. 
+
+DERECHOS RESERVADOS ESTRUCT METAL S.A. DE C.V
